@@ -11,6 +11,7 @@ import DefaultLayout from './layout/DefaultLayout';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ProductPage from './pages/ProductPage';
+import ProductDetailPage from './pages/ProductDetailPage';
 
 function App() {
 
@@ -20,7 +21,11 @@ function App() {
                 <Route element={<DefaultLayout />}>
                     <Route path="/" element={<HomePage />} />
                     <Route path="/about" element={<AboutPage />} />
-                    <Route path="/product" element={<ProductPage />} />
+                    <Route path="/product" >
+                        <Route index element={<ProductPage />} />
+                        <Route path=":id" element={<ProductDetailPage />} />
+                    </Route >
+                    <Route path="*" element={<NotFound />} />
                 </Route>
             </Routes>
         </BrowserRouter>
