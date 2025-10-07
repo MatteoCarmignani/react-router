@@ -1,17 +1,16 @@
 import './App.css'
 
-// libreria routing
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-// layout
 import DefaultLayout from './layout/DefaultLayout';
 
-
-// varie pagine 
+ 
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ProductPage from './pages/ProductPage';
 import ProductDetailPage from './pages/ProductDetailPage';
+import Error404 from './pages/Error404';
 
 function App() {
 
@@ -25,7 +24,7 @@ function App() {
                         <Route index element={<ProductPage />} />
                         <Route path=":id" element={<ProductDetailPage />} />
                     </Route >
-                    <Route path="*" element={<NotFound />} />
+                    <Route path="*" element={<Error404 />} />
                 </Route>
             </Routes>
         </BrowserRouter>
