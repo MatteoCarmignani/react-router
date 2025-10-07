@@ -11,24 +11,27 @@ const ProductDetailPage = () => {
 
     useEffect( ()=> {
         axios.get(`https://fakestoreapi.com/products/${id}`)
-        .then( res => console.log(res.data))
+        .then((res) => {
+        setProduct(res.data); 
+      })
         .catch( err => console.log(err))
     })
 
     return (
         <>
-
-            <Link to={`/product`}>
-                <i className="fa-solid fa-arrow-left"></i>
+            <Link to="/product" className="back-link">
+            <i className="fa-solid fa-arrow-left"></i> Torna ai prodotti
             </Link>
 
-            <div>L'ID E': {id}</div>   
-            <div className="fakestore-card">
-                <img src={product.image} alt={product.title} />
-                <p className="title">{product.title}</p>
-                <p className="price">€ {product.price}</p>
+            <div className="product-detail-container">
+                <div className="product-detail-card">
+                    <h2 className="titleDetail">{product.title}</h2>
+                    <img src={product.image} alt={product.title} />
+                    <p className="descriptionDetail">{product.description}</p>
+                    <p className="priceDetail">Il prezzo è di € {product.price}</p>
+                </div>
             </div>
-   
+
         </>
     )
 

@@ -1,22 +1,20 @@
 // import della parte di componenti di navigazione per routing
 import { NavLink } from "react-router-dom";
 
-const links = [
-    { path: '/', label: 'Home' },
-    { path: '/about', label: 'Chi siamo' },
-    { path: '/product', label: 'I nostri Prodotti' },
-]
-
 
 const MainNavBar = () => {
     return (
         <nav>
             <ul>
-                {links.map(link => (
-                    <li>
-                        <NavLink to={link.path}>{link.label}</NavLink>
-                    </li>
-                ))}
+                <li>
+                    <NavLink to="/">Home Page</NavLink>
+                </li>
+                <li>
+                    <NavLink to="/about">Chi siamo</NavLink>
+                </li>
+                <li>
+                    <NavLink to="/product">I nostri Prodotti</NavLink>
+                </li>
 
             </ul>
         </nav>
